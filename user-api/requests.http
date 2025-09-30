@@ -21,3 +21,38 @@ Content-Type: application/json
     ],
     "company": "potato inc"
 }
+
+### Create my own user
+
+POST /api/v1/users HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+    "email": "gabriel2@email.com",
+    "password": "4321RT65",
+    //"handle": "gabrielg",
+    "name": "Gabriel",
+    "roles": [
+        "ROLE_USER"
+    ],
+    "company": "IFRS PPA"
+}
+
+### Create my own ticket
+
+POST /api/v1/tickets HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+    "criador": 1,
+    "destinatario": 1,
+    "objeto": "PC",
+    "acao": "Reparo",
+    "detalhes": "Reparo no Pc",
+    "local": "Lab2",
+    "observadores": [
+        1
+    ]
+}

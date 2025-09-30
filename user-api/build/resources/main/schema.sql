@@ -26,26 +26,3 @@ CREATE TABLE IF NOT EXISTS profiles (
     type VARCHAR(255),
     FOREIGN KEY (id) REFERENCES users(id)
 );
-
-CREATE TABLE IF NOT EXISTS tickets(
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    responsavel_id INTEGER,
-    criador INTEGER,
-    destinataio_id INTEGER,
-    ticket_status VARCHAR(255) NOT NULL DEFAULT 'PENDENTE',
-    objeto VARCHAR(255),
-    acao VARCHAR(255),
-    detalhes VARCHAR(255),
-    local VARCHAR(255),
-    FOREIGN KEY (responsavel_id) REFERENCES user(id),
-    FOREIGN KEY (destinataio_id) REFERENCES user(id),
-    FOREIGN KEY (criador) REFERENCES user(id)
-);
-
-CREATE TABLE IF NOT EXISTS ticket_observadores (
-    user_id INTEGER NOT NULL,
-    ticket_id INTEGER NOT NULL,
-    PRIMARY key (user_id, ticket_id),
-    FOREIGN KEY (user_id) REFERENCES users(id),
-    FOREIGN KEY (ticket_id) REFERENCES tickets(id)
-);
